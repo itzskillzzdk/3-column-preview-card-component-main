@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+
+:root {
+    --scroll-padding: 0;
+
+    /* COLORS */
+
+    --clr-orange-400: hsl(31, 77%, 52%);
+    --clr-dark-cyan-400: hsl(184, 100%, 22%);
+    --clr-dark-cyan-500: hsl(179, 100%, 13%);
+
+    /* (paragraphs) */
+    --clr-neutral-100: hsla(0, 0%, 100%, 0.75);
+    /* (background, headings, buttons) */
+    --clr-neutral-200: hsl(0, 0%, 95%);
+
+    /* FONT-FAMILY */
+
+    --ff-accent: "Big Shoulders Display", cursive;
+    --ff-base: "Lexend Deca", sans-serif;
+
+    /* FONT-WEIGHT */
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    /* FONT-SIZE */
+
+    --fs-400: 0.9375rem;
+    --fs-500: 1.125rem;
+    --fs-600: 1.25rem;
+    --fs-700: 1.5rem;
+    --fs-800: 1.75rem;
+    --fs-900: 3rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: var(--scroll-padding, 5rem);
+}
+
+body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    font-family: var(--ff-base);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-200);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h4,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* utilities */
+
+ul,
+ol {
+    list-style: none;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.grid-flow {
+    display: grid;
+    place-items: center start;
+}
+
+/* vehicle cards */
+
+.vehicle-cards {
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 5rem auto;
+}
+
+@media (width > 755px) {
+    .vehicle-cards {
+        margin: unset;
+        grid-auto-flow: column;
+    }
+}
+
+[data-list-item="accent-1"] {
+    --accent-color: var(--clr-orange-400);
+}
+
+[data-list-item="accent-2"] {
+    --accent-color: var(--clr-dark-cyan-400);
+}
+
+[data-list-item="accent-3"] {
+    --accent-color: var(--clr-dark-cyan-500);
+}
+
+.vehicle-card {
+    --padding: 3rem;
+
+    max-width: 330px;
+    background-color: var(--accent-color);
+    padding: var(--padding);
+    aspect-ratio: 2 / 3;
+}
+
+@media (width > 755px) {
+    .vehicle-card {
+        padding-right: 4.5rem;
+        gap: 1rem;
+    }
+}
+
+.vehicle-card__title {
+    font-family: var(--ff-accent);
+    font-size: var(--fs-900);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    color: var(--clr-neutral-200);
+}
+
+.vehicle-card__button {
+    --button-color: var(--clr-neutral-200);
+
+    background-color: var(--button-color);
+    color: var(--accent-color);
+
+    padding: 0.875rem 2.125rem;
+    border-radius: 50px;
+}
+
+@media (width > 755px) {
+    .vehicle-card__button {
+        margin-top: 4rem;
+    }
+}
+
+.vehicle-card__button:is(:hover, :focus) {
+    cursor: pointer;
+    background-color: transparent;
+    outline: 2px solid var(--button-color);
+    color: var(--button-color);
+}
